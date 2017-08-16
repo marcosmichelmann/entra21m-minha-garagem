@@ -76,16 +76,22 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
         jSpinnerAnoLancamento = new javax.swing.JSpinner();
         jLabel18 = new javax.swing.JLabel();
         jFormattedTextFieldDataCompra = new javax.swing.JFormattedTextField();
+        jLabelCodigo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 0, 51));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        jLabel1.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel1.setText("Código");
 
+        jLabel2.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel2.setText("Renavam:");
 
+        jLabel3.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel3.setText("Ano Fabricação:");
+
+        jTextFieldRenavam.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -101,81 +107,106 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel4.setText("Ano Lançamento:");
 
+        jLabel5.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel5.setText("Tipo Pneu:");
 
         jComboBoxTipoPneu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18", "17", "16", "15" }));
         jComboBoxTipoPneu.setSelectedIndex(-1);
+        jComboBoxTipoPneu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jLabel6.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel6.setText("Quantidade Portas: ");
 
         jComboBoxQuantidadePortas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2", "4", "6" }));
         jComboBoxQuantidadePortas.setSelectedIndex(-1);
+        jComboBoxQuantidadePortas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jLabel7.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel7.setText("Quantidade Batidas: ");
 
         jComboBoxQuantidadeBatidas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20", "15", "10", "5" }));
         jComboBoxQuantidadeBatidas.setSelectedIndex(-1);
+        jComboBoxQuantidadeBatidas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jLabel8.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel8.setText("Nome: ");
 
         jComboBoxNome.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Gol", "Palio", "308", "208", "Golf", "A3", "A4", "Civic", "Fit" }));
         jComboBoxNome.setSelectedIndex(-1);
+        jComboBoxNome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel9.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel9.setText("Cor:");
 
         jComboBoxCor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Preto", "Branco", "Vermelho", "Azul", "Cinza", "Prata" }));
         jComboBoxCor.setSelectedIndex(-1);
+        jComboBoxCor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel10.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel10.setText("Fabricante:");
 
         jComboBoxFabricante.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "VW", "AUDI", "PEUGEOT", "FIAT", "HONDA" }));
         jComboBoxFabricante.setSelectedIndex(-1);
+        jComboBoxFabricante.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel11.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel11.setText("Placa:");
 
+        jTextFieldPlaca.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextFieldPlaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPlacaActionPerformed(evt);
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel12.setText("Chassi:");
 
+        jTextFieldChassi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextFieldChassi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldChassiActionPerformed(evt);
             }
         });
 
+        jLabel13.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel13.setText("Descrição: ");
 
         jTextAreaDescricao.setBackground(new java.awt.Color(51, 102, 255));
         jTextAreaDescricao.setColumns(20);
         jTextAreaDescricao.setRows(5);
+        jTextAreaDescricao.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 0)));
         jScrollPane1.setViewportView(jTextAreaDescricao);
 
+        jLabel14.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel14.setText("Quilometragem: ");
 
+        jTextFieldQuilometragem.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextFieldQuilometragem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldQuilometragemActionPerformed(evt);
             }
         });
 
+        jLabel15.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel15.setText("Potência: ");
 
         jComboBoxPotencia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "70cv", "74cv", "86cv", "90cv", "120cv", "146cv" }));
         jComboBoxPotencia.setSelectedIndex(-1);
+        jComboBoxPotencia.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jComboBoxPotencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxPotenciaActionPerformed(evt);
             }
         });
 
+        jLabel16.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel16.setText("Data Compra: ");
 
+        jLabel17.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel17.setText("Está Funcionando: ");
 
         buttonGroup1.add(jRadioButtonEstaFuncionalSim);
@@ -189,6 +220,8 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("Não");
 
+        jLabel19.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel19.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel19.setText("Permitida Circulação: ");
 
         buttonGroup2.add(jRadioButtonPermitidaCircSim);
@@ -203,8 +236,10 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
         jRadioButton4.setText("Não");
 
         jSpinnerAnoFabricacao.setModel(new javax.swing.SpinnerListModel(new String[] {"2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012"}));
+        jSpinnerAnoFabricacao.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jSpinnerAnoLancamento.setModel(new javax.swing.SpinnerListModel(new String[] {"2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012"}));
+        jSpinnerAnoLancamento.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel18.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alunos\\Desktop\\images.jpg")); // NOI18N
         jLabel18.setText("jLabel18");
@@ -252,7 +287,10 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -266,29 +304,6 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBoxPotencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButtonPermitidaCircSim)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton4))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButtonCancelar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonSalvar)
-                                .addGap(61, 61, 61))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(38, 38, 38))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -317,13 +332,38 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
                                 .addComponent(jRadioButtonEstaFuncionalSim)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jRadioButton2)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButtonPermitidaCircSim)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton4))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jButtonCancelar)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButtonSalvar)
+                                    .addGap(61, 61, 61))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(38, 38, 38)))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabelCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
@@ -369,22 +409,20 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
                     .addComponent(jRadioButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jFormattedTextFieldDataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(28, 28, 28))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel19)
-                        .addComponent(jRadioButtonPermitidaCircSim)
-                        .addComponent(jRadioButton4)))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(jRadioButtonPermitidaCircSim)
+                    .addComponent(jRadioButton4))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(78, 78, 78)
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(58, 58, 58))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel13)
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(116, 116, 116)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -441,33 +479,43 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
         meuCarro.setAnoLancamento(Short.parseShort(jSpinnerAnoLancamento.getValue().toString()));
 
         meuCarro.setQuantidadeBatidas(Byte.parseByte(jComboBoxQuantidadeBatidas.getSelectedItem().toString()));
-        
+
         meuCarro.setCor(String.valueOf(jComboBoxCor.getSelectedItem()));
-        
+
         meuCarro.setPlaca(jTextFieldPlaca.getText());
-        
+
         meuCarro.setChassi(jTextFieldChassi.getText());
-        
+
         meuCarro.setQuilometragem(Float.parseFloat(jTextFieldQuilometragem.getText()));
-        
-        meuCarro.setPotencia(Float.parseFloat(jComboBoxPotencia.getSelectedItem().toString().substring(0,1)));
-        
-        
+
+        meuCarro.setPotencia(Float.parseFloat(jComboBoxPotencia.getSelectedItem().toString().substring(0, 1)));
+
         meuCarro.setEstaFuncional(jRadioButtonEstaFuncionalSim.isSelected());
-        
+
         meuCarro.setPermitidaCirculacao(jRadioButtonPermitidaCircSim.isSelected());
-        
+
         meuCarro.setDescricao(jTextAreaDescricao.getText());
-        
 
         CarroDAO dao = new CarroDAO();
-        int codigo = dao.inserir(meuCarro);
-        if(codigo != Utilitarios.NAO_FOI_POSSIVEL_INSERIR){
-            JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
-        }else{
-            JOptionPane.showMessageDialog(null, "Não foi possível inserir");
+        if (!jLabelCodigo.getText().equals("")) {
+            meuCarro.setId(Integer.parseInt(jLabelCodigo.getText()));
+            int codigo = dao.alterar(meuCarro);
+            if (codigo != Utilitarios.NAO_FOI_POSSIVEL_ALTERAR) {
+                JOptionPane.showMessageDialog(null, "Alteração realizado com sucesso");
+            } else {
+                JOptionPane.showMessageDialog(null, "Não foi possível alterar");
+            }
+        } else {
+            int codigo = dao.inserir(meuCarro);
+            if (codigo != Utilitarios.NAO_FOI_POSSIVEL_INSERIR) {
+                JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+                jLabelCodigo.setText(String.valueOf(codigo));
+            } else {
+                JOptionPane.showMessageDialog(null, "Não foi possível inserir");
+            }
+
         }
-        
+
 
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
@@ -542,6 +590,7 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButtonEstaFuncionalSim;
