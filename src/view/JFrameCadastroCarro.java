@@ -77,8 +77,10 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jFormattedTextFieldDataCompra = new javax.swing.JFormattedTextField();
         jLabelCodigo = new javax.swing.JLabel();
+        jButtonExcluir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de carro");
         setBackground(new java.awt.Color(204, 0, 51));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -91,7 +93,7 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel3.setText("Ano Fabricação:");
 
-        jTextFieldRenavam.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTextFieldRenavam.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -115,21 +117,21 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
 
         jComboBoxTipoPneu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18", "17", "16", "15" }));
         jComboBoxTipoPneu.setSelectedIndex(-1);
-        jComboBoxTipoPneu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jComboBoxTipoPneu.setBorder(new javax.swing.border.SoftBevelBorder(0));
 
         jLabel6.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel6.setText("Quantidade Portas: ");
 
         jComboBoxQuantidadePortas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2", "4", "6" }));
         jComboBoxQuantidadePortas.setSelectedIndex(-1);
-        jComboBoxQuantidadePortas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jComboBoxQuantidadePortas.setBorder(new javax.swing.border.SoftBevelBorder(0));
 
         jLabel7.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel7.setText("Quantidade Batidas: ");
 
         jComboBoxQuantidadeBatidas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20", "15", "10", "5" }));
         jComboBoxQuantidadeBatidas.setSelectedIndex(-1);
-        jComboBoxQuantidadeBatidas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jComboBoxQuantidadeBatidas.setBorder(new javax.swing.border.SoftBevelBorder(0));
 
         jLabel8.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel8.setText("Nome: ");
@@ -155,7 +157,7 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel11.setText("Placa:");
 
-        jTextFieldPlaca.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTextFieldPlaca.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         jTextFieldPlaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPlacaActionPerformed(evt);
@@ -165,7 +167,7 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel12.setText("Chassi:");
 
-        jTextFieldChassi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTextFieldChassi.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         jTextFieldChassi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldChassiActionPerformed(evt);
@@ -184,7 +186,7 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
         jLabel14.setText("Quilometragem: ");
 
-        jTextFieldQuilometragem.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTextFieldQuilometragem.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         jTextFieldQuilometragem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldQuilometragemActionPerformed(evt);
@@ -236,12 +238,11 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
         jRadioButton4.setText("Não");
 
         jSpinnerAnoFabricacao.setModel(new javax.swing.SpinnerListModel(new String[] {"2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012"}));
-        jSpinnerAnoFabricacao.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jSpinnerAnoFabricacao.setBorder(new javax.swing.border.SoftBevelBorder(0));
 
         jSpinnerAnoLancamento.setModel(new javax.swing.SpinnerListModel(new String[] {"2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012"}));
-        jSpinnerAnoLancamento.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jSpinnerAnoLancamento.setBorder(new javax.swing.border.SoftBevelBorder(0));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alunos\\Desktop\\images.jpg")); // NOI18N
         jLabel18.setText("jLabel18");
 
         try {
@@ -249,6 +250,13 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+
+        jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -326,8 +334,8 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jFormattedTextFieldDataCompra, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(65, 65, 65)
-                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jRadioButtonEstaFuncionalSim)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -347,15 +355,17 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jButtonCancelar)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButtonSalvar)
-                                    .addGap(61, 61, 61))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(38, 38, 38)))))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonExcluir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonSalvar)
+                        .addGap(61, 61, 61))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -427,11 +437,13 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
                         .addGap(116, 116, 116)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelar)
-                    .addComponent(jButtonSalvar))
+                    .addComponent(jButtonSalvar)
+                    .addComponent(jButtonExcluir))
                 .addGap(18, 18, 18))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPlacaActionPerformed
@@ -523,6 +535,25 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxPotenciaActionPerformed
 
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        if(jLabelCodigo.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Não foi cadastrado nenhum carro ainda");
+            
+        }else{
+            int codigo = Integer.parseInt(jLabelCodigo.getText());
+            CarroDAO dao = new CarroDAO();
+            if(dao.excluir(codigo) == Utilitarios.NAO_FOI_POSSIVEL_EXCLUIR){
+                JOptionPane.showMessageDialog(null, "Não foi possível excluir");
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso");
+                dispose();
+            }
+            
+                   
+        }
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -562,6 +593,7 @@ public class JFrameCadastroCarro extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JComboBox jComboBoxCor;
     private javax.swing.JComboBox jComboBoxFabricante;
