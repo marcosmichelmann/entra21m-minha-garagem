@@ -1,3 +1,4 @@
+
 # Apagar o banco de dados
 DROP DATABASE IF EXISTS minha_garagem;
 
@@ -26,3 +27,13 @@ CREATE TABLE IF NOT EXISTS carros (
     renavam INT,
     descricao TEXT
 );
+
+DROP TABBLE IF EXISTS categorias;
+CREATE TABLE IF NOT EXISTS categorias(
+ id INTEGER PRIMARY KEY AUTO_INCREMENT,
+ nome VARCHAR(150) UNIQUE NOT NULL, # não permite ser vazio e é único
+ descricao TEXT,
+ ativo BOOLEAN DEFAULT TRUE # vai conter o valor de false caso não for passado nada no INSERT
+);
+
+
