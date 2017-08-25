@@ -23,8 +23,8 @@ public class CategoriaDAO {
 
     public int inserir(Categoria categoria) {
         int codigoInserido = Utilitarios.NAO_FOI_POSSIVEL_INSERIR;
-        String sql = "INSERT INTO categorias (nome, descricao)";
-        sql += "\nVALUE (?.?)";
+        String sql = "INSERT INTO categorias (nome, descricao, ativo)";
+        sql += "\nVALUE (?,?,?)";
         try {
 
             //Classe utilizada para criar o sql substituindo a interrogações
@@ -33,6 +33,7 @@ public class CategoriaDAO {
             //Substitui as interrogações
             ps.setString(1, categoria.getNome());
             ps.setString(2, categoria.getDescricao());
+            ps.setBoolean(3, categoria.isAtivo());
             //Executa o comando no bd
             ps.execute();
 
@@ -41,7 +42,7 @@ public class CategoriaDAO {
              */
             ResultSet resultado = ps.getGeneratedKeys();
             if (resultado.next()) {
-                codigoInserido = resultado.getInt("id");
+                codigoInserido = resultado.getInt(1);
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Erro ao inserir CategoriaDAO", JOptionPane.ERROR_MESSAGE);
@@ -89,7 +90,7 @@ public class CategoriaDAO {
 
     public ArrayList<Categoria> retornarListaCategoria() {
         ArrayList<Categoria> categorias = new ArrayList<>();
-        String sql = "SELECT id, nome, descricao"
+        String sql = "SELECT id, nome, descricao, ativo "
                 + "\nFROM categorias";
         try {
             Statement stmt = Conexao.conectar().createStatement();
@@ -114,7 +115,7 @@ public class CategoriaDAO {
 
     public Categoria buscarCategoriaPorId(int codigo) {
         Categoria categoria = null;
-        String sql = "SELECT nome, descricao, ativo FROM categorias";
+        String sql = "SELECT nome, descricao, ativo FROM categorias ";
         sql += "WHERE id = ?";
         try{
             PreparedStatement ps = Conexao.conectar().prepareStatement(sql);

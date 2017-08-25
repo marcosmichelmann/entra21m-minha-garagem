@@ -6,7 +6,11 @@
 package view;
 
 import dao.CategoriaDAO;
+import database.Utilitarios;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import model.Categoria;
 
@@ -21,6 +25,7 @@ public class JFrameListaCategorias extends javax.swing.JFrame {
      */
     public JFrameListaCategorias() {
         initComponents();
+        clickDaTabela();
     }
 
     /**
@@ -38,10 +43,16 @@ public class JFrameListaCategorias extends javax.swing.JFrame {
         jButtonCadastrar = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         jToggleButton1.setText("jToggleButton1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jTableCategorias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -76,12 +87,29 @@ public class JFrameListaCategorias extends javax.swing.JFrame {
 
         jButtonCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salvar.png"))); // NOI18N
         jButtonCadastrar.setText("Cadastrar");
+        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarActionPerformed(evt);
+            }
+        });
 
         jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editar.png"))); // NOI18N
         jButtonEditar.setText("Editar");
+        jButtonEditar.setEnabled(false);
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarActionPerformed(evt);
+            }
+        });
 
         jButtonExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/excluir.png"))); // NOI18N
         jButtonExcluir.setText("Excluir");
+        jButtonExcluir.setEnabled(false);
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,12 +124,17 @@ public class JFrameListaCategorias extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonCadastrar)
                 .addGap(21, 21, 21))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonEditar)
                     .addComponent(jButtonCadastrar)
@@ -112,6 +145,41 @@ public class JFrameListaCategorias extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
+        new JFrameCadastroCategoria().setVisible(true);
+    }//GEN-LAST:event_jButtonCadastrarActionPerformed
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        if (jTableCategorias.getSelectedRow() > -1) {
+            int id = Integer.parseInt(jTableCategorias.getValueAt(jTableCategorias.getSelectedRow(), 0).toString());
+            String nome = jTableCategorias.getValueAt(jTableCategorias.getSelectedRow(), 1).toString();
+
+            int codigoExclusao = new CategoriaDAO().excluir(id);
+            if (codigoExclusao == Utilitarios.NAO_FOI_POSSIVEL_EXCLUIR) {
+                JOptionPane.showMessageDialog(null, "Não foi possível excluir");
+            } else {
+
+                popularLista();
+                jButtonEditar.setEnabled(false);
+                jButtonExcluir.setEnabled(false);
+                JOptionPane.showMessageDialog(null, nome + " Foi excluído com sucesso");
+            }
+        }
+
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        popularLista();
+    }//GEN-LAST:event_formWindowActivated
+
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        if (jTableCategorias.getSelectedRow() > -1) {
+            int id = Integer.parseInt(jTableCategorias.getValueAt(jTableCategorias.getSelectedRow(), 0).toString());
+            Categoria categoria = new CategoriaDAO().buscarCategoriaPorId(id);
+            new JFrameCadastroCategoria(categoria).setVisible(true);
+        }
+    }//GEN-LAST:event_jButtonEditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,23 +215,36 @@ public class JFrameListaCategorias extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public void popularLista() {
-        DefaultTableModel modelo = (DefaultTableModel)jTableCategorias.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) jTableCategorias.getModel();
         ArrayList<Categoria> categorias = new CategoriaDAO().retornarListaCategoria();
+        modelo.setRowCount(0);
         for (Categoria categoria : categorias) {
             modelo.addRow(new Object[]{
                 categoria.getId(), categoria.getNome(), categoria.isAtivo()
             });
         }
     }
-        
+
+    public void clickDaTabela() {
+        jTableCategorias.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                jButtonEditar.setEnabled(true);
+                jButtonExcluir.setEnabled(true);
+            }
+        });
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonExcluir;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTableCategorias;
     private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
