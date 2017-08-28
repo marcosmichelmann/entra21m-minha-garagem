@@ -19,6 +19,7 @@ public class JFrameInicial extends JFrame implements JFrameComportamentosInterfa
     private JButton jButtonListaCarros;
     private JButton jButtonCadastroCarro;
     private JButton jButtonListaCategorias;
+    private JButton jButtonListaAvioes;
     
     
     public JFrameInicial(){
@@ -45,6 +46,7 @@ public class JFrameInicial extends JFrame implements JFrameComportamentosInterfa
         jButtonListaCarros = new JButton("Lista de Carros");
         jButtonCadastroCarro = new JButton("Cadastro de Carros");
         jButtonListaCategorias = new JButton("Lista de Categorias");
+        jButtonListaAvioes = new JButton("Lista Aviões");
     }
 
     @Override
@@ -52,6 +54,7 @@ public class JFrameInicial extends JFrame implements JFrameComportamentosInterfa
         jButtonListaCarros.setBounds(10, 10, 200, 35);
         jButtonCadastroCarro.setBounds(10, 55, 200, 35);
         jButtonListaCategorias.setBounds(10, 100, 200, 35);
+        jButtonListaAvioes.setBounds(10, 145, 200, 35);
         
     }
 
@@ -60,6 +63,7 @@ public class JFrameInicial extends JFrame implements JFrameComportamentosInterfa
         add(jButtonListaCarros);
         add(jButtonCadastroCarro);
         add(jButtonListaCategorias);
+        add(jButtonListaAvioes);
         
     }
 
@@ -75,6 +79,11 @@ public class JFrameInicial extends JFrame implements JFrameComportamentosInterfa
         
         jButtonCadastroCarro.addActionListener((ActionEvent e) -> {
             new JFrameCadastroCarro().setVisible(true);
+        });
+        
+        jButtonListaAvioes.addActionListener((ActionEvent e) -> {
+           new JFrameListaAvioes().setVisible(true);
+           
         });
       
         

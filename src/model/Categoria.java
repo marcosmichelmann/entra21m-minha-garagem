@@ -10,6 +10,7 @@ package model;
  * @author Alunos
  */
 public class Categoria {
+
     private int id;
     private String nome, descricao;
     private boolean ativo;
@@ -45,6 +46,10 @@ public class Categoria {
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return nome;
+    }
+
 }

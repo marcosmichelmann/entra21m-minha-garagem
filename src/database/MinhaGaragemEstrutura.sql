@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS avioes(
 id INTEGER PRIMARY KEY AUTO_INCREMENT,
 
 id_categoria INTEGER NOT NULL,
-FOREIGN KEY (id_categoria) REFERENCES categorias(id)
+FOREIGN KEY (id_categoria) REFERENCES categorias(id),
 
 nome VARCHAR(100) NOT NULL UNIQUE
 
@@ -55,8 +55,8 @@ INSERT INTO categorias (nome) VALUES
 INSERT INTO avioes (id_categoria, nome) VALUES
 (1, "Tecoteco"),
 (2, "Air Bus A320"),
-(3, "Air Bus 777"),
-(4, "Air Bus 747");
+(2, "Air Bus 777"),
+(3, "Air Bus 747");
 
 
 
