@@ -8,6 +8,7 @@ package view;
 import dao.AviaoDAO;
 import dao.CategoriaDAO;
 import database.Utilitarios;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -25,12 +26,29 @@ public class JFrameCadastroAviao extends javax.swing.JFrame {
      */
     public JFrameCadastroAviao() {
         initComponents();
+        limparComponentes();
     }
 
     public JFrameCadastroAviao(Aviao aviao) {
         this();
         jTextFieldCodigo.setText(String.valueOf(aviao.getCodigo()));
+        popularComponentes(aviao);
+    }
+
+    public void limparComponentes() {
+        jTextFieldNome.setText("");
+        jComboBoxCategoria.setSelectedIndex(-1);
+    }
+
+    public void popularComponentes(Aviao aviao) {
         jTextFieldNome.setText(aviao.getNome());
+        for (int i = 0; i < jComboBoxCategoria.getModel().getSize(); i++) {
+            Categoria categoria = jComboBoxCategoria.getModel().getElementAt(i);
+            if (categoria.getId() == aviao.getCategoria().getId()) {
+                jComboBoxCategoria.setSelectedIndex(i);
+                return;
+            }
+        }
     }
 
     /**
@@ -55,6 +73,16 @@ public class JFrameCadastroAviao extends javax.swing.JFrame {
         jLabelCodigo.setText("Código:");
 
         jTextFieldCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextFieldCodigo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldCodigoFocusLost(evt);
+            }
+        });
+        jTextFieldCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldCodigoKeyReleased(evt);
+            }
+        });
 
         jLabelNome.setText("Nome:");
 
@@ -119,18 +147,61 @@ public class JFrameCadastroAviao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        Aviao aviao = new Aviao();
-        aviao.setNome(jTextFieldNome.getText());
-        aviao.setCategoria((Categoria) jComboBoxCategoria.getSelectedItem());
-        int codigoInserido = new AviaoDAO().inserir(aviao);
-        if (codigoInserido == Utilitarios.NAO_FOI_POSSIVEL_INSERIR) {
-            JOptionPane.showMessageDialog(null, "Não foi possível inserir o avião", "Aviso", JOptionPane.ERROR_MESSAGE);
+        if (!jTextFieldCodigo.getText().equals("")) {
+            int codigo = Integer.parseInt(jTextFieldCodigo.getText());
+
+            Aviao aviao = new Aviao();
+            aviao.setCodigo(codigo);
+            aviao.setNome(jTextFieldNome.getText());
+            aviao.setCategoria((Categoria) jComboBoxCategoria.getSelectedItem());
+            int codigoAlterado = new AviaoDAO().alterar(aviao);
+            if (codigo == Utilitarios.NAO_FOI_POSSIVEL_ALTERAR) {
+                JOptionPane.showMessageDialog(null, "Não foi possível alerar", "Aviso", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Avião alterado");
+            }
+
         } else {
-            jTextFieldCodigo.setText(String.valueOf(codigoInserido));
-            aviao.setCodigo(codigoInserido);
-            JOptionPane.showMessageDialog(null, "Avião inserido com sucesso.");
+
+            Aviao aviao = new Aviao();
+            aviao.setNome(jTextFieldNome.getText());
+            aviao.setCategoria((Categoria) jComboBoxCategoria.getSelectedItem());
+            int codigoInserido = new AviaoDAO().inserir(aviao);
+            if (codigoInserido == Utilitarios.NAO_FOI_POSSIVEL_INSERIR) {
+                JOptionPane.showMessageDialog(null, "Não foi possível inserir o avião", "Aviso", JOptionPane.ERROR_MESSAGE);
+            } else {
+                jTextFieldCodigo.setText(String.valueOf(codigoInserido));
+                aviao.setCodigo(codigoInserido);
+                JOptionPane.showMessageDialog(null, "Avião inserido com sucesso.");
+            }
         }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
+
+    private void jTextFieldCodigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCodigoKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            verificarCodigoExistente();
+    }//GEN-LAST:event_jTextFieldCodigoKeyReleased
+    }
+    private void jTextFieldCodigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCodigoFocusLost
+        verificarCodigoExistente();
+    }//GEN-LAST:event_jTextFieldCodigoFocusLost
+
+    public void verificarCodigoExistente() {
+        try {
+
+            int codigo = Integer.parseInt(jTextFieldCodigo.getText());
+            Aviao aviao = new AviaoDAO().buscarAviaoPorId(codigo);
+            if (aviao == null) {
+                JOptionPane.showMessageDialog(null, "Código inválido");
+                limparComponentes();
+                jTextFieldCodigo.requestFocus();
+            } else {
+                popularComponentes(aviao);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Valor informado não é válido");
+        }
+    }
 
     public DefaultComboBoxModel<Categoria> popularJComboBoxCategoria() {
         DefaultComboBoxModel<Categoria> model = new DefaultComboBoxModel<>();
